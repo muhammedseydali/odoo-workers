@@ -1,0 +1,9 @@
+<odoo>
+    <report
+        id="worker_performance_report"
+        model="worker.performance"
+        string="Performance Report"
+        report_type="qweb-pdf"
+        name="worker_performance.report_template"
+    />
+</odoo>

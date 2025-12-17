@@ -1,0 +1,58 @@
+<odoo>
+    <record id="worker_performance_tree" model="ir.ui.view">
+        <field name="model">worker.performance</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="worker_id"/>
+                <field name="date"/>
+                <field name="score"/>
+                <field name="state"/>
+                <field name="performance_amount"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="worker_performance_form" model="ir.ui.view">
+        <field name="model">worker.performance</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_submit"
+                            states="draft"
+                            type="object"
+                            string="Submit"/>
+                    <button name="action_approve"
+                            states="submitted"
+                            type="object"
+                            string="Approve"
+                            class="btn-primary"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="worker_id"/>
+                        <field name="date"/>
+                        <field name="score"/>
+                        <field name="note"/>
+                        <field name="approved_by" readonly="1"/>
+                        <field name="performance_amount" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <menuitem id="menu_worker_perf_root"
+              name="Performance Evaluations"
+              parent="hr.menu_hr_root"/>
+
+    <menuitem id="menu_worker_perf"
+              parent="menu_worker_perf_root"
+              action="action_worker_perf"/>
+
+    <record id="action_worker_perf" model="ir.actions.act_window">
+        <field name="name">Worker Performance</field>
+        <field name="res_model">worker.performance</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

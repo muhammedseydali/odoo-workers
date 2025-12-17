@@ -1,0 +1,10 @@
+<odoo>
+    <record id="perf_employee_rule" model="ir.rule">
+        <field name="name">Own Performance</field>
+        <field name="model_id" ref="model_worker_performance"/>
+        <field name="domain_force">
+            [('worker_id.user_id','=',user.id)]
+        </field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+</odoo>

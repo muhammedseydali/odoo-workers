@@ -1,0 +1,6 @@
+<odoo>
+    <record id="input_performance_bonus" model="hr.payslip.input.type">
+        <field name="name">Performance Bonus</field>
+        <field name="code">PERF_BONUS</field>
+    </record>
+</odoo>
